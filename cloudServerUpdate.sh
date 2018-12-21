@@ -1,25 +1,26 @@
-rm -rf PG_Cloud_Server 
-rm -rf PGServerJs.tar.gz
-
-mv PGServerJs PGServerJs_`date +"%Y-%m-%d"`
-
-echo "PGServer folder moved"
-
-cd pgbuild
+rm -rf ../PG_Cloud_Server 
+rm -rf ../PGServerJs.tar.gz
 
 git pull
-echo "git pull done" 
+echo "git pull done"
 
-tar -xvf PGServerJs.tar.gz
+cp PGServerJs.tar.gz ../
+
+
+tar -xvf ../PGServerJs.tar.gz
 echo "extract done"
 
-mv PG_Cloud_Server/PGServerJs ..
+mv ../PGServerJs ../PGServerJs_`date +"%Y-%m-%d"`
+echo "PGServer folder moved"
 
-cd ..
+mv ../PG_Cloud_Server/PGServerJs ../
+cd ../PGServerJs
 
-cd PGServerJs/
 echo "npm install start"
 npm install
 echo "npm install done"
 
+cd ..
 node startServerCloud.js --app $1
+pm2 status
+pm2 logs
