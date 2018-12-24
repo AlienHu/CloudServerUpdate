@@ -21,6 +21,7 @@ npm install
 echo "npm install done"
 
 cd ..
+
 node startServerCloud.js --app $1
 pm2 status
 pm2 logs
