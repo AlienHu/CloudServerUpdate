@@ -4,7 +4,7 @@ rm -rf ../PGServerJs.tar.gz
 git pull
 echo "git pull done"
 
-cp PGServerJs.tar.gz ../
+cp $1/PGServerJs.tar.gz ../
 
 
 tar -xvf ../PGServerJs.tar.gz
@@ -19,8 +19,6 @@ cd ../PGServerJs
 echo "npm install start"
 npm install
 echo "npm install done"
-
-cd ..
 
 node startServerCloud.js --app $1
 pm2 status
