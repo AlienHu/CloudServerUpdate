@@ -11,6 +11,7 @@ echo "PGServer folder moved"
 mv ./PG_Cloud_Server/PGServerJs ./
 cd PGServerJs
 echo "npm install start"
+rm package-lock.json
 npm install
 echo "npm install done"
 node startServerCloud.js --app $1
